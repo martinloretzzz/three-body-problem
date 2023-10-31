@@ -3,7 +3,7 @@ import { Vector2 } from "./vector2";
 export interface HeavyBody {
 	position: Vector2;
 	velocity: Vector2;
-	acceleration: Vector2;
 	mass: number;
 	color?: string;
+	debug_acceleration?: Vector2;
 }

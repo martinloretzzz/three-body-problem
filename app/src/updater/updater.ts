@@ -35,8 +35,8 @@ export class BodyUpdater {
 	public update(bodies: HeavyBody[], dt: number) {
 		return bodies.map((body) => {
 			const newBody = { ...body };
-			newBody.acceleration = this.calculateAcceleration(body, bodies);
-			newBody.velocity = this.updateVelocity(newBody.velocity, newBody.acceleration, dt);
+			newBody.debug_acceleration = this.calculateAcceleration(body, bodies);
+			newBody.velocity = this.updateVelocity(newBody.velocity, newBody.debug_acceleration, dt);
 			newBody.position = this.updatePosition(newBody.position, newBody.velocity, dt);
 			return newBody;
 		});
