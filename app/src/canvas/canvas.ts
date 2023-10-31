@@ -18,7 +18,7 @@ export class CanvasDrawer {
 
 	private coordsToPixel(position: Vector2): Vector2 {
 		const { width, height } = this.getDimensions();
-		return new Vector2(((position.x + 1) / 2) * width, ((position.y + 1) / 2) * height);
+		return new Vector2(((position.x + 1) / 2) * width, ((-position.y + 1) / 2) * height);
 	}
 
 	public clear() {

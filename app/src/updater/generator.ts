@@ -11,6 +11,10 @@ const generateRandomColor = () => {
 	return "#" + Math.floor(Math.random() * 16777215).toString(16);
 };
 
+export const colorForIndex = (index: number) => {
+	return index < colors.length ? colors[index] : generateRandomColor();
+};
+
 export const generateRandomPopulation = (count = 3, velosityScaler = 0.1, massScaler = 20) => {
 	const bodies: HeavyBody[] = [];
 	for (let i = 0; i < count; i++) {
@@ -19,9 +23,22 @@ export const generateRandomPopulation = (count = 3, velosityScaler = 0.1, massSc
 			position: generateRandomVector().scale(0.8),
 			velocity: generateRandomVector().scale(velosityScaler),
 			mass: massRadnom * massScaler,
-			size: 24 * massRadnom,
-			color: i < colors.length ? colors[i] : generateRandomColor(),
+			size: 16 * Math.sqrt(4 * massRadnom),
+			color: colorForIndex(i),
 		});
 	}
 	return bodies;
+};
+
+export const generateRegularStructure = (edges = 3, mass = 1) => {
+	return [...Array(edges).keys()].map((i) => {
+		const angle = (i / edges) * 2 * Math.PI;
+		return {
+			position: new Vector2(Math.sin(angle), Math.cos(angle)).scale(0.5),
+			velocity: new Vector2(Math.cos(angle), -Math.sin(angle)),
+			color: colorForIndex(i),
+			mass: mass,
+			size: 18,
+		};
+	});
 };
