@@ -32,7 +32,7 @@ let bodies: HeavyBody[] = [
 	},
 ];
 
-const options = { dt: 0.001 };
+const options = { dt: 0.001, play: true };
 
 const framerate = 100;
 
@@ -52,12 +52,15 @@ const isFinished = (bodies: HeavyBody[]) => {
 };
 
 const update = () => {
-	bodies = updater.update(bodies, options.dt);
-	// console.log(bodies);
+	if (options.play) {
+		bodies = updater.update(bodies, options.dt);
+		// console.log(bodies);
+	}
+
 	drawer.clear();
 	drawer.draw(bodies);
 
-	if (!isFinished(bodies)) setTimeout(() => update(), 1000 / framerate);
+	if (isFinished(bodies)) options.play = false;
 };
 
 const getSliderValue = (id: string, defaultValue: number = 0) => {
@@ -70,7 +73,7 @@ const getCheckboxValue = (id: string, defaultValue: boolean = false) => {
 	return checkbox ? checkbox.checked : defaultValue;
 };
 
-const start = () => {
+const init = () => {
 	const bodyCount = getSliderValue("config-count", 3);
 	const velosityScaler = getSliderValue("config-velocity", 10) / 100;
 	const massScaler = getSliderValue("config-mass", 20);
@@ -82,6 +85,7 @@ const start = () => {
 	if (bodyCountElement) bodyCountElement.innerHTML = bodyCount.toString();
 
 	if (regularObject) {
+		// 3=10, 6=6, 12=2
 		bodies = generateRegularStructure(bodyCount, massScaler / 20);
 	} else {
 		bodies = generateRandomPopulation(bodyCount, velosityScaler, massScaler);
@@ -92,8 +96,17 @@ const start = () => {
 	options.dt = 0.0001 * timestep;
 };
 
-update();
-start();
+const start = () => {
+	options.play = true;
+};
 
-const reloadButton = <HTMLButtonElement | null>document.getElementById("reload");
-reloadButton?.addEventListener("click", start);
+const stop = () => {
+	options.play = false;
+};
+
+init();
+setInterval(() => update(), 1000 / framerate);
+
+document.getElementById("generate")?.addEventListener("click", init);
+document.getElementById("start")?.addEventListener("click", start);
+document.getElementById("stop")?.addEventListener("click", stop);
