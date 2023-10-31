@@ -7,22 +7,22 @@
 		<title>Three Body Problem</title>
 	</head>
 	<body>
-		<div id="app"></div>
-		<div style="border: solid white 2px; background-color: #242424; padding: 16px; position: absolute; right: 0">
-			<h2><span id="body-count">n</span>-body problem</h2>
-			<p>Body Count <input id="config-count" type="range" min="1" max="16" value="3" /></p>
-			<p>Initial Velocity <input id="config-velocity" type="range" min="0" max="100" value="20" /></p>
-			<p>Mass <input id="config-mass" type="range" min="0" max="32" value="20" /></p>
-			<p>Time Step <input id="config-timestep" type="range" min="0" max="100" value="10" /></p>
-			<p><input type="checkbox" id="config-regular" /> Distribute Evenly</p>
-			<button id="reload">Start</button><br /><br />
-			<div style="background-color: white; border-radius: 8; padding: 8px">
-				<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/48f74b3b4d591ba1996c4d481f74ac3ab7e279d7" />
+		<div style="display: flex; justify-content: flex-start">
+			<canvas id="canvas" width="800" height="800" style="border: solid white 2px"></canvas>
+			<div style="border: solid white 2px; background-color: #242424; padding: 16px">
+				<h2><span id="body-count">n</span>-body problem</h2>
+				<p>Body Count <input id="config-count" type="range" min="1" max="16" value="3" /></p>
+				<p>Initial Velocity <input id="config-velocity" type="range" min="0" max="100" value="20" /></p>
+				<p>Mass <input id="config-mass" type="range" min="0" max="32" value="20" /></p>
+				<p>Time Step <input id="config-timestep" type="range" min="0" max="100" value="10" /></p>
+				<p><input type="checkbox" id="config-regular" /> Distribute Evenly</p>
+				<button id="generate">Generate</button> <button id="start">Start</button> <button id="stop">Stop</button
+				><br /><br />
+				<div style="background-color: white; border-radius: 8; padding: 8px">
+					<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/48f74b3b4d591ba1996c4d481f74ac3ab7e279d7" />
+				</div>
 			</div>
 		</div>
-
-		<canvas id="canvas" width="800" height="800" style="border: solid white 2px; margin: auto"></canvas>
-
 		<script type="module" src="/src/main.ts"></script>
 	</body>
 </html>
