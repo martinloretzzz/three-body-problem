@@ -8,8 +8,15 @@
 	</head>
 	<body>
 		<div id="app"></div>
+		<div style="border: solid white 2px; background-color: #242424; padding: 16px; position: absolute; right: 0">
+			<h2>n-body problem</h2>
+			<p>Body Count <input id="config-count" type="range" min="1" max="16" value="3" /></p>
+			<p>Initial Velocity <input id="config-velocity" type="range" min="0" max="100" value="20" /></p>
+			<p>Mass <input id="config-mass" type="range" min="0" max="32" value="20" /></p>
+			<button id="reload">Start</button>
+		</div>
 
-		<canvas id="canvas" width="400" height="400" style="border: solid white 2px; margin: auto"></canvas>
+		<canvas id="canvas" width="800" height="800" style="border: solid white 2px; margin: auto"></canvas>
 
 		<script type="module" src="/src/main.ts"></script>
 	</body>

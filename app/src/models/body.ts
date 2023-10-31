@@ -4,6 +4,7 @@ export interface HeavyBody {
 	position: Vector2;
 	velocity: Vector2;
 	mass: number;
+	size?: number;
 	color?: string;
 	debug_acceleration?: Vector2;
 }

@@ -1,7 +1,7 @@
 import { HeavyBody } from "../models/body";
 import { Vector2 } from "../models/vector2";
 
-const G = 10;
+const G = 1;
 
 export class BodyUpdater {
 	private calculateGravitytionalAcceleration(body: HeavyBody, otherBody: HeavyBody): Vector2 {

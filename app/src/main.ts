@@ -2,10 +2,8 @@ import { CanvasDrawer } from "./canvas/canvas.ts";
 import { HeavyBody } from "./models/body.ts";
 import { Vector2 } from "./models/vector2.ts";
 import "./style.css";
+import { generateRandomPopulation } from "./updater/generator.ts";
 import { BodyUpdater } from "./updater/updater.ts";
-
-const canvas = <HTMLCanvasElement | null>document.getElementById("canvas");
-if (!canvas) throw new Error("Canvas not found");
 
 let bodies: HeavyBody[] = [
 	{
@@ -34,32 +32,12 @@ let bodies: HeavyBody[] = [
 	},
 ];
 
-const colors = ["red", "blue", "green", "yellow", "pink", "orange", "purple", "gray", "cyan", "magenta", "maroon"];
-
-const generateRandomVector = () => {
-	return new Vector2(Math.random() * 2 - 1, Math.random() * 2 - 1);
-};
-
-const generateRandomColor = () => {
-	return "#" + Math.floor(Math.random() * 16777215).toString(16);
-};
-
-const generateRandomPopulation = (count: number) => {
-	const bodies: HeavyBody[] = [];
-	for (let i = 0; i < count; i++) {
-		bodies.push({
-			position: generateRandomVector(),
-			velocity: generateRandomVector().scale(0.2),
-			mass: Math.max(Math.random() * 2, 0.2),
-			color: i < colors.length ? colors[i] : generateRandomColor(),
-		});
-	}
-	return bodies;
-};
-
 bodies = generateRandomPopulation(8);
 
 const framerate = 100;
+
+const canvas = <HTMLCanvasElement | null>document.getElementById("canvas");
+if (!canvas) throw new Error("Canvas not found");
 
 const updater = new BodyUpdater();
 const drawer = new CanvasDrawer(canvas);
@@ -82,4 +60,21 @@ const update = () => {
 	if (!isFinished(bodies)) setTimeout(() => update(), 1000 / framerate);
 };
 
-update();
+const start = () => {
+	const bodyCountSlider = <HTMLInputElement | null>document.getElementById("config-count");
+	const bodyCount = bodyCountSlider ? parseInt(bodyCountSlider.value) : 3;
+
+	const initialVelositySlider = <HTMLInputElement | null>document.getElementById("config-velocity");
+	const velosityScaler = initialVelositySlider ? parseInt(initialVelositySlider.value) / 100 : 0.1;
+
+	const massScalerSlider = <HTMLInputElement | null>document.getElementById("config-mass");
+	const massScaler = massScalerSlider ? parseInt(massScalerSlider.value) : 20;
+
+	bodies = generateRandomPopulation(bodyCount, velosityScaler, massScaler);
+	update();
+};
+
+const reloadButton = <HTMLButtonElement | null>document.getElementById("reload");
+reloadButton?.addEventListener("click", start);
+
+start();
