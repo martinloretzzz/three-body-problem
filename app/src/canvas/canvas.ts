@@ -29,7 +29,7 @@ export class CanvasDrawer {
 	public draw(bodies: HeavyBody[]) {
 		for (const body of bodies) {
 			const pos = this.coordsToPixel(body.position);
-			const radius = 50;
+			const radius = 20;
 
 			this.ctx.fillStyle = body.color || "rgb(200, 0, 0)";
 			this.ctx.beginPath();
