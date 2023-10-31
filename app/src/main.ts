@@ -1,24 +1,28 @@
-import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
+import { CanvasDrawer } from "./canvas/canvas.ts";
+import { HeavyBody } from "./models/body.ts";
+import "./style.css";
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`
+const canvas = <HTMLCanvasElement | null>document.getElementById("canvas");
+if (!canvas) throw new Error("Canvas not found");
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+const bodies: HeavyBody[] = [
+	{
+		position: { x: 1, y: 1 },
+		velocity: { x: 0, y: 0 },
+		mass: 100,
+		color: "red",
+	},
+	{
+		position: { x: -0.5, y: -0.5 },
+		velocity: { x: 0, y: 0 },
+		mass: 100,
+		color: "blue",
+	},
+];
+
+const drawer = new CanvasDrawer(canvas);
+
+drawer.clear();
+drawer.draw(bodies);
+
+setupCounter(document.querySelector<HTMLButtonElement>("#counter")!);
