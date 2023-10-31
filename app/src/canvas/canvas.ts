@@ -1,5 +1,5 @@
 import { HeavyBody } from "../models/body";
-import { Vector2 } from "../models/vector";
+import { Vector2 } from "../models/vector2";
 
 export class CanvasDrawer {
 	private canvas: HTMLCanvasElement;
@@ -18,7 +18,7 @@ export class CanvasDrawer {
 
 	private coordsToPixel(position: Vector2): Vector2 {
 		const { width, height } = this.getDimensions();
-		return { x: ((position.x + 1) / 2) * width, y: ((position.y + 1) / 2) * height };
+		return new Vector2(((position.x + 1) / 2) * width, ((position.y + 1) / 2) * height);
 	}
 
 	public clear() {

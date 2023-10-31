@@ -1,8 +1,8 @@
-import { Vector2 } from "./vector";
+import { Vector2 } from "./vector2";
 
 export interface HeavyBody {
 	position: Vector2;
 	velocity: Vector2;
 	mass: number;
-    color?: string;
+	color?: string;
 }
