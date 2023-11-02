@@ -77,6 +77,7 @@ const init = () => {
 	const bodyCount = getSliderValue("config-count", 3);
 	const velosityScaler = getSliderValue("config-velocity", 10) / 100;
 	const massScaler = getSliderValue("config-mass", 20);
+	const randomizeMass = getCheckboxValue("config-randomize-mass", false);
 	const regularObject = getCheckboxValue("config-regular", false);
 	const timestep = getSliderValue("config-timestep", 10);
 	console.log(bodyCount, velosityScaler, massScaler, regularObject, timestep);
@@ -88,7 +89,7 @@ const init = () => {
 		// 3=10, 6=6, 12=2
 		bodies = generateRegularStructure(bodyCount, massScaler / 20);
 	} else {
-		bodies = generateRandomPopulation(bodyCount, velosityScaler, massScaler);
+		bodies = generateRandomPopulation(bodyCount, 10 * velosityScaler, massScaler, randomizeMass);
 	}
 
 	console.log(bodies);

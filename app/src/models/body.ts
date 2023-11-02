@@ -6,5 +6,5 @@ export interface HeavyBody {
 	mass: number;
 	size?: number;
 	color?: string;
-	debug_acceleration?: Vector2;
+	debugAcceleration?: Vector2;
 }

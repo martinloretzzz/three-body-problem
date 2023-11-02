@@ -15,10 +15,10 @@ export const colorForIndex = (index: number) => {
 	return index < colors.length ? colors[index] : generateRandomColor();
 };
 
-export const generateRandomPopulation = (count = 3, velosityScaler = 0.1, massScaler = 20) => {
+export const generateRandomPopulation = (count = 3, velosityScaler = 0.1, massScaler = 20, randomizeMass = true) => {
 	const bodies: HeavyBody[] = [];
 	for (let i = 0; i < count; i++) {
-		const massRadnom = Math.max(Math.random(), 0.1);
+		const massRadnom = randomizeMass ? Math.max(Math.random(), 0.1) : 0.5;
 		bodies.push({
 			position: generateRandomVector().scale(0.8),
 			velocity: generateRandomVector().scale(velosityScaler),
