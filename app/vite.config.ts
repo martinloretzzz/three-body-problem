@@ -1,5 +1,5 @@
 import { defineConfig } from "vite";
 
 export default defineConfig({
-	base: "/three-body-problem/",
+  // base: "/three-body-problem/",
 });
