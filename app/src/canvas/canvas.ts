@@ -13,7 +13,7 @@ export class CanvasDrawer {
 	}
 
 	private getDimensions(): { width: number; height: number } {
-		return this.canvas.getBoundingClientRect();
+    	return { width: this.canvas.width, height: this.canvas.height };
 	}
 
 	private coordsToPixel(position: Vector2): Vector2 {
