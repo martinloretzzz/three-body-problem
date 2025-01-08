@@ -15,7 +15,7 @@
       <h1 class="text-5xl font-extrabold text-gradient">
         <span id="body-count">3</span>-body problem
       </h1>
-      <div class="flex flex-col gap-16">
+      <div class="flex flex-col gap-16 items-center justify">
         <div class="flex flex-col md:flex-row">
           <canvas
             class="w-full grow md:w-[50vw] xl:max-w-[50vw] 2xl:max-w-[40vw]"
@@ -25,10 +25,10 @@
             style="border: solid white 2px"
           ></canvas>
           <div
-            class="flex flex-col gap-4"
+            class="flex flex-col gap-4 grow-0 shrink"
             style="border: solid white 2px; background-color: #242424; padding: 16px"
           >
-            <div class="font-bold text-lg">Config:</div>
+            <div class="font-bold text-xl text-gradient">Config:</div>
             <div class="grid grid-cols-2 gap-2">
               <p>Body Count</p>
               <input id="config-count" type="range" min="1" max="16" value="3" />
@@ -48,6 +48,10 @@
                 <input type="checkbox" id="config-regular" />
               </div>
             </div>
+            <p>
+              If the bodies go offscreen, <br class="hidden md:inline" />start a new simulation with
+              "Generate".
+            </p>
             <div class="flex flex-wrap gap-2">
               <button class="btn btn-blue" id="generate">Generate</button>
               <button class="btn btn-blue" id="startstop">Start/Stop</button>
