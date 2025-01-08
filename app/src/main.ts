@@ -74,31 +74,34 @@ const getCheckboxValue = (id: string, defaultValue: boolean = false) => {
 };
 
 const init = () => {
-	const bodyCount = getSliderValue("config-count", 3);
-	const velosityScaler = getSliderValue("config-velocity", 10) / 100;
-	const massScaler = getSliderValue("config-mass", 20);
-	const randomizeMass = getCheckboxValue("config-randomize-mass", false);
-	const regularObject = getCheckboxValue("config-regular", false);
-	const timestep = getSliderValue("config-timestep", 10);
-	console.log(bodyCount, velosityScaler, massScaler, regularObject, timestep);
+  const bodyCount = getSliderValue("config-count", 3);
+  const velosityScaler = getSliderValue("config-velocity", 10) / 100;
+  const massScaler = getSliderValue("config-mass", 20);
+  const randomizeMass = getCheckboxValue("config-randomize-mass", false);
+  const regularObject = getCheckboxValue("config-regular", false);
+  const timestep = getSliderValue("config-timestep", 10);
+  console.log(bodyCount, velosityScaler, massScaler, regularObject, timestep);
 
-	const bodyCountElement = document.getElementById("body-count");
-	if (bodyCountElement) bodyCountElement.innerHTML = bodyCount.toString();
+  if (regularObject) {
+    // 3=10, 6=6, 12=2
+    bodies = generateRegularStructure(bodyCount, massScaler / 20);
+  } else {
+    bodies = generateRandomPopulation(bodyCount, 10 * velosityScaler, massScaler, randomizeMass);
+  }
 
-	if (regularObject) {
-		// 3=10, 6=6, 12=2
-		bodies = generateRegularStructure(bodyCount, massScaler / 20);
-	} else {
-		bodies = generateRandomPopulation(bodyCount, 10 * velosityScaler, massScaler, randomizeMass);
-	}
+  console.log(bodies);
 
-	console.log(bodies);
-
-	options.dt = 0.0001 * timestep;
+  options.dt = 0.0001 * timestep;
 };
 
 const startstop = () => {
   options.play = !options.play;
+};
+
+const updateHeading = () => {
+  const bodyCount = getSliderValue("config-count", 3);
+  const bodyCountElement = document.getElementById("body-count");
+  if (bodyCountElement) bodyCountElement.innerHTML = bodyCount.toString();
 };
 
 init();
@@ -106,3 +109,5 @@ setInterval(() => update(), 1000 / framerate);
 
 document.getElementById("generate")?.addEventListener("click", init);
 document.getElementById("startstop")?.addEventListener("click", startstop);
+document.getElementById("config-count")?.addEventListener("input", updateHeading);
+

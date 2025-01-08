@@ -3,17 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Three Body Problem</title>
+    <title>Three Body Problem Simulator</title>
+    <description>Exploring the emergent complexity of the three body problem</description>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   </head>
   <body>
     <div class="dark flex flex-col gap-16 items-center p-8">
       <h1 class="text-4xl font-extrabold text-gradient">
-        <span id="body-count">n</span>-body problem
+        <span id="body-count">3</span>-body problem
       </h1>
       <div class="flex flex-col gap-16">
         <div class="flex flex-col md:flex-row">
           <canvas
-            class="w-full grow md:w-[50vw]"
+            class="w-full grow md:w-[50vw] xl:w-[40vw]"
             id="canvas"
             width="800"
             height="800"
@@ -49,6 +51,30 @@
             </div>
           </div>
         </div>
+        <div class="md:w-[80vw] prose prose-invert !max-w-none">
+          <h2 class="text-2xl font-bold text-gradient">
+            The chaotic dance of 3 bodies in a universe controlled by simple rules
+          </h2>
+          <p>
+            The three body problem shows the inherient raise of chaos and complexity in the
+            universe, even from the simplest system of three cerestial bodies attracting each other.
+          </p>
+          <p>
+            While each body follows the laws of gravity, their collective behavior defies simple
+            prediction, suggesting a universe where not everything is within our grasp to control or
+            foresee.
+          </p>
+          <p>
+            This mirrors life's own unpredictability, challanging the limits of our understanding
+            and showing us the endless things that are left to explore, even when we only look at
+            one simple formula:
+            <img src="./formula.svg" width="200" />
+          </p>
+          <p>
+            Made with ❤️ by <a href="https://martinloretz.com" target="_blank">Martin Loretz</a>
+          </p>
+        </div>
+      </div>
       <div class="fixed bottom-4 right-4 z-10">
         <a href="https://ko-fi.com/K3K518GTDC" target="_blank"
           ><img
