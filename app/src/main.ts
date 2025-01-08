@@ -97,17 +97,12 @@ const init = () => {
 	options.dt = 0.0001 * timestep;
 };
 
-const start = () => {
-	options.play = true;
-};
-
-const stop = () => {
-	options.play = false;
+const startstop = () => {
+  options.play = !options.play;
 };
 
 init();
 setInterval(() => update(), 1000 / framerate);
 
 document.getElementById("generate")?.addEventListener("click", init);
-document.getElementById("start")?.addEventListener("click", start);
-document.getElementById("stop")?.addEventListener("click", stop);
+document.getElementById("startstop")?.addEventListener("click", startstop);

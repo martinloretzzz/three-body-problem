@@ -2,12 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Three Body Problem</title>
   </head>
   <body>
-    <div class="flex flex-col gap-16 items-center p-8">
+    <div class="dark flex flex-col gap-16 items-center p-8">
       <h1 class="text-4xl font-extrabold text-gradient">
         <span id="body-count">n</span>-body problem
       </h1>
@@ -46,13 +45,28 @@
             </div>
             <div class="flex flex-wrap gap-2">
               <button class="btn btn-blue" id="generate">Generate</button>
-              <button class="btn btn-blue" id="start">Start</button>
-              <button class="btn btn-blue" id="stop">Stop</button>
+              <button class="btn btn-blue" id="startstop">Start/Stop</button>
             </div>
           </div>
         </div>
+      <div class="fixed bottom-4 right-4 z-10">
+        <a href="https://ko-fi.com/K3K518GTDC" target="_blank"
+          ><img
+            height="48"
+            style="border: 0px; height: 48px"
+            src="https://storage.ko-fi.com/cdn/kofi6.png?v=6"
+            alt="Buy Me a Coffee at ko-fi.com"
+        /></a>
       </div>
     </div>
     <script type="module" src="/src/main.ts"></script>
+    <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+    <noscript>
+      <img
+        src="https://queue.simpleanalyticscdn.com/noscript.gif"
+        alt=""
+        referrerpolicy="no-referrer-when-downgrade"
+      />
+    </noscript>
   </body>
 </html>
