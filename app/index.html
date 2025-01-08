@@ -11,7 +11,7 @@
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   </head>
   <body>
-    <div class="dark flex flex-col gap-16 items-center p-8">
+    <div class="dark flex flex-col gap-16 items-center px-4 py-8 md:p-8">
       <h1 class="text-5xl font-extrabold text-gradient">
         <span id="body-count">3</span>-body problem
       </h1>
@@ -34,9 +34,8 @@
               <input id="config-count" type="range" min="1" max="16" value="3" />
               <p>Time Step</p>
               <input id="config-timestep" type="range" min="0" max="100" value="10" />
-
               <p>Initial Velocity</p>
-              <input id="config-velocity" type="range" min="0" max="100" value="20" />
+              <input id="config-velocity" type="range" min="0" max="100" value="10" />
               <p>Mass</p>
               <input id="config-mass" type="range" min="0" max="32" value="20" />
               <p>Randomize Mass</p>
@@ -47,11 +46,11 @@
               <div class="w-full">
                 <input type="checkbox" id="config-regular" />
               </div>
+              <p>Autorestart</p>
+              <div class="w-full">
+                <input type="checkbox" id="config-autorestart" checked />
+              </div>
             </div>
-            <p>
-              If the bodies go offscreen, <br class="hidden md:inline" />start a new simulation with
-              "Generate".
-            </p>
             <div class="flex flex-wrap gap-2">
               <button class="btn btn-blue" id="generate">Generate</button>
               <button class="btn btn-blue" id="startstop">Start/Stop</button>

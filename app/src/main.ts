@@ -43,24 +43,21 @@ const updater = new BodyUpdater();
 const drawer = new CanvasDrawer(canvas);
 
 const isFinished = (bodies: HeavyBody[]) => {
-	for (const body of bodies) {
-		if (body.position.magnitude() > 100) {
-			return true;
-		}
-	}
-	return false;
+  return bodies.every((body) => body.position.magnitude() > 2);
 };
 
 const update = () => {
-	if (options.play) {
-		bodies = updater.update(bodies, options.dt);
-		// console.log(bodies);
-	}
+  const autorestart = getCheckboxValue("config-autorestart", false);
 
-	drawer.clear();
-	drawer.draw(bodies);
+  if (options.play) {
+    bodies = updater.update(bodies, options.dt);
+    console.log(bodies);
+  }
 
-	if (isFinished(bodies)) options.play = false;
+  drawer.clear();
+  drawer.draw(bodies);
+
+  if (isFinished(bodies) && autorestart) init();
 };
 
 const getSliderValue = (id: string, defaultValue: number = 0) => {
