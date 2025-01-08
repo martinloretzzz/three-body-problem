@@ -1,7 +1,25 @@
 import { HeavyBody } from "../models/body";
 import { Vector2 } from "../models/vector2";
 
-const colors = ["red", "blue", "green", "yellow", "pink", "orange", "purple", "gray", "cyan", "magenta", "maroon"];
+const colors = [
+  "#b91c1c",
+  "#4d7c0f",
+  "#0369a1",
+  "#6d28d9",
+  "#a16207",
+  "#86198f",
+  "red",
+  "blue",
+  "green",
+  "yellow",
+  "pink",
+  "orange",
+  "purple",
+  "gray",
+  "cyan",
+  "magenta",
+  "maroon",
+];
 
 const generateRandomVector = () => {
 	return new Vector2(Math.random() * 2 - 1, Math.random() * 2 - 1);

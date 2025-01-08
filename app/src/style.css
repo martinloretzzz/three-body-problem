@@ -15,6 +15,14 @@
   text-rendering: optimizeLegibility;
 }
 
+input[type='range'] {
+  accent-color: #0369a1;
+}
+
+input[type="checkbox"] {
+  accent-color: #0369a1; /* Replace with your desired color */
+}
+
 .btn {
   @apply font-bold py-1 px-2 rounded;
 }
