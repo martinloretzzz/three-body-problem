@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   class="size-6"
+   fill="none"
+   stroke="currentColor"
+   stroke-width="1.5"
+   version="1.1"
+   viewBox="0 0 24 24"
+   id="svg5"
+   sodipodi:docname="favicon.svg"
+   inkscape:version="1.3.1 (9b9bdc1480, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs5" />
+  <sodipodi:namedview
+     id="namedview5"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     showgrid="true"
+     inkscape:zoom="16"
+     inkscape:cx="11.90625"
+     inkscape:cy="10.9375"
+     inkscape:window-width="1452"
+     inkscape:window-height="863"
+     inkscape:window-x="2652"
+     inkscape:window-y="206"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="g5">
+    <inkscape:grid
+       id="grid8"
+       units="px"
+       originx="0"
+       originy="0"
+       spacingx="2"
+       spacingy="2"
+       empcolor="#0099e5"
+       empopacity="0.30196078"
+       color="#0099e5"
+       opacity="0.14901961"
+       empspacing="5"
+       dotted="false"
+       gridanglex="30"
+       gridanglez="30"
+       visible="true" />
+  </sodipodi:namedview>
+  <g
+     stroke="none"
+     id="g5">
+    <rect
+       width="24"
+       height="24"
+       ry="4"
+       fill="#101010"
+       id="rect1" />
+    <rect
+       width="100%"
+       height="100%"
+       fill="none"
+       id="rect2" />
+    <circle
+       style="fill:#ffffff"
+       id="path1"
+       cx="18.743713"
+       cy="8.2839546"
+       r="3" />
+    <circle
+       style="fill:#ffffff"
+       id="path2"
+       cx="12"
+       cy="18.720314"
+       r="2" />
+    <circle
+       style="fill:#ffffff;stroke-width:1.64389"
+       id="path3"
+       cx="6.6476212"
+       cy="7.7760468"
+       r="4.9786606" />
+  </g>
+</svg>
