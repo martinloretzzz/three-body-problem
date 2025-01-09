@@ -51,7 +51,7 @@ const update = () => {
 
   if (options.play) {
     bodies = updater.update(bodies, options.dt);
-    console.log(bodies);
+    // console.log(bodies);
   }
 
   drawer.clear();

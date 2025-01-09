@@ -8,6 +8,7 @@ const colors = [
   "#6d28d9",
   "#a16207",
   "#86198f",
+  "#eab308",
   "red",
   "blue",
   "green",
